@@ -14,7 +14,7 @@
         </li>
         @auth
           <li class="nav-item">
-          <a class="nav-link" href="#">Inserisci giocatore</a>
+          <a class="nav-link" href="{{route('player.create')}}">Inserisci giocatore</a>
         </li>
         @endauth
       </ul>
