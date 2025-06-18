@@ -14,3 +14,6 @@ Route::get('/giocatore/show/{player}', [PlayerController::class, 'show'])->name(
 Route::get('/giocatore/edit{player}', [PlayerController::class, 'edit'])->name('player.edit');
 Route::get('/giocatore/ruolo/{position}', [PlayerController::class, 'filter_role'])->name('player.index_position');
 Route::get('/utente', [UserController::class, 'user'])->name('user');
+
+ Route::get('/contact-us', [PublicController::class, 'contact_us'])->name('contact-us');
+ Route::post('/contact-us/submit', [PublicController::class, 'data'])->name('data');
