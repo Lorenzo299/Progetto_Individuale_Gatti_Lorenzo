@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg nav-cstm fw-bold" id="navbar">
   <div class="container-fluid">
     <a class="navbar-brand" href="{{route('homepage')}}">FootBlog</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,7 +10,7 @@
           <a class="nav-link active" aria-current="page" href="{{route('homepage')}}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" href="{{route('player.index')}}">I nostri giocatori</a>
         </li>
         @auth
           <li class="nav-item">
@@ -31,12 +31,12 @@
          @endguest
          @auth
          <li class="nav-item">
-          <a class="nav-link" href="#">Bentornato {{Auth::user()->name}}</a>
+          <a class="nav-link" href="{{route('user')}}">Bentornato {{Auth::user()->name}}</a>
         </li>
          <li class="nav-item">
           <form action="{{route('logout')}}" id="logout" method="POST">
             @csrf
-             <button onclick="event.preventeDefault(); document.querySelector('#logout').submit();" class="btn btn-danger">Esci</button>
+             <button onclick="event.preventeDefault(); document.querySelector('#logout').submit();" class="btn color-acc fw-bold">Esci</button>
           </form>
         </li>
            

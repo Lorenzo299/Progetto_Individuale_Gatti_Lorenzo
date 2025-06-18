@@ -4,25 +4,23 @@ namespace App\Livewire;
 
 use App\Models\Player;
 use Livewire\Component;
-use App\Models\Position;
-use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Features\SupportFileUploads\WithFileUploads;
 
-class CreatePlayer extends Component
+class EditPlayer extends Component
 {
-    use WithFileUploads;
+     use WithFileUploads;
     public $name;
     public $age;
     public $team;
     public $img;
-    public $posizione;
+    public $player;
 
     protected $rules = [
         'name' => 'required|string|min:3',
         'team' => 'required|string|min:3',
         'age' => 'required|integer',
-        'posizione' => 'required',        
-        'img' => 'required',        
+        // 'img'  => 'nullable|image|max:2048'
     ];
 
     protected $messages = [
@@ -31,28 +29,36 @@ class CreatePlayer extends Component
         'integer' => 'Il campo :attribute deve essere un numero.',
         'min' => 'Il campo :attribute non ha sufficienti caratteri.',
     ];
+    public function mount(){
+        $this->name=$this->player->name;
+        $this->age=$this->player->age;
+        $this->team=$this->player->team;
+        $this->img=$this->player->img;
+    }
 
-    public function store()
+    public function update()
     {
          $this->validate();
         //  $this->img=$this->img?->store('images','public') ?? $this->img;
-         Player::create([
+         $this->player->update([
              'name'=>$this->name,
-             'position_id'=>$this->posizione,
              'age'=>$this->age,
              'team'=>$this->team,
-             'img'=>$this->img->store('img', 'public'),
+            'img'=>$this->img->store('img', 'public'),
              'user_id'=>Auth::user()->id,
              
             ]);
-        session()->flash('message', 'Giocatore aggiunto con successo');
+        session()->flash('message', 'Giocatore modificato con successo');
         $this->reset();
         
     }
-
+    public function destroy(Player $player)
+    {
+        $this->player->delete();
+        redirect(route('homepage'));
+    }
     public function render()
     {
-        $positions= Position::all();
-        return view('livewire.create-player', compact('positions'));
+        return view('livewire.edit-player');
     }
 }

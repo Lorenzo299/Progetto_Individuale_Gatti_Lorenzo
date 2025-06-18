@@ -1,3 +1,62 @@
+:root{
+    --colore-primario: rgb(37, 31, 31);
+    --colore-accento: rgb(132, 14, 14);
+}
+.color-acc{
+    color: var(--colore-accento);
+}
+.color-pri{
+    color: var(--colore-primario);
+}
+
+.bg-card{
+  background-color: transparent;
+  border: solid var(--colore-primario) 3px;
+  font-weight: bolder;
+}
+
+*{
+  text-shadow: 2px 2px 8px rgba(250, 248, 248, 0.623);
+}
 h1{
-    color: red;
+    color: var(--colore-primario);
+    text-align: center;
+    text-transform: uppercase;
+}
+label{
+  font-weight: bold;
+}
+
+.btn-mio{
+  background-color: var(--colore-accento);
+  color: white;
+}
+
+.homepage{
+  background: linear-gradient(rgba(255, 255, 255, 0.262),rgba(255, 255, 255, 0.223)) ,url('../../public/sfondo.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+
+.nav-cstm{
+    background-color: transparent;
+    color: var(--colore-accento);
+    background: linear-gradient(rgba(255, 255, 255, 0.262),rgba(255, 255, 255, 0.223));
+    width: 100%;  
+}
+
+.fix{
+   
+   position: fixed;
+   animation: fixx 1s ease-out forwards;
+}
+@keyframes fixx {
+  from {
+    top: -100px;
+  }
+  to {
+    top: 0px;
+  }
 }

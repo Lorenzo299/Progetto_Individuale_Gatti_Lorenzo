@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Player;
+use App\Models\Position;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Routing\Controllers\HasMiddleware;
 
 class PlayerController extends Controller implements HasMiddleware
@@ -11,13 +13,14 @@ class PlayerController extends Controller implements HasMiddleware
      public static function middleware(): array
     {
         return [
-            'auth',
+            new Middleware('auth', only: ['player.index'])
            
         ];
     }
     public function index()
     {
-        //
+        $players= Player::simplePaginate(3);
+        return view('player.index',compact('players'));
     }
 
     /**
@@ -31,17 +34,16 @@ class PlayerController extends Controller implements HasMiddleware
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        //
-    }
+   
 
     /**
      * Display the specified resource.
      */
     public function show(Player $player)
     {
-        //
+        return view('player.show', compact('player'));
+
+
     }
 
     /**
@@ -49,16 +51,14 @@ class PlayerController extends Controller implements HasMiddleware
      */
     public function edit(Player $player)
     {
-        //
+                return view('player.edit', compact('player'));
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Player $player)
-    {
-        //
-    }
+    
 
     /**
      * Remove the specified resource from storage.
@@ -66,5 +66,9 @@ class PlayerController extends Controller implements HasMiddleware
     public function destroy(Player $player)
     {
         //
+    }
+
+    public function filter_role(Position $position){
+return view('player.index_position', compact('position'));
     }
 }
