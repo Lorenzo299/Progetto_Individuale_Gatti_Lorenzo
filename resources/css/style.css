@@ -1,6 +1,7 @@
+/* INIT */
 :root{
     --colore-primario: rgb(37, 31, 31);
-    --colore-accento: rgb(132, 14, 14);
+    --colore-accento: rgb(246, 238, 238);
 }
 .color-acc{
     color: var(--colore-accento);
@@ -9,47 +10,46 @@
     color: var(--colore-primario);
 }
 
-.bg-card{
-  background-color: transparent;
-  border: solid var(--colore-primario) 3px;
-  font-weight: bolder;
-}
-
+/* TAG FIXED */
 *{
-  text-shadow: 2px 2px 8px rgba(250, 248, 248, 0.623);
-}
-h1{
-    color: var(--colore-primario);
-    text-align: center;
-    text-transform: uppercase;
-}
-label{
-  font-weight: bold;
-}
-
-.btn-mio{
-  background-color: var(--colore-accento);
-  color: white;
-}
-
-.homepage{
-  background: linear-gradient(rgba(255, 255, 255, 0.262),rgba(255, 255, 255, 0.223)) ,url('../../public/sfondo.jpeg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  text-shadow: 2px 2px 8px rgba(250, 248, 248, 0.9);
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--colore-accento);
   
 }
+h1{
+  
+  text-align: center;
+   font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+}
 
+/* COMPONENTS */
+footer{
+  background:linear-gradient(rgba(255, 255, 255, 0.334),rgba(255, 255, 255, 0.411)), url('../../public/img_esterne/sfondofooter.jpeg');
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 3px solid rgb(239, 232, 232);
+  
+  
+}
+/* NAVBAR */
 .nav-cstm{
-    background-color: transparent;
-    color: var(--colore-accento);
-    background: linear-gradient(rgba(255, 255, 255, 0.262),rgba(255, 255, 255, 0.223));
-    width: 100%;  
+   
+  color: var(--colore-accento);
+  background-color: black;
+    width: 100%; 
+    z-index: 3;
 }
 
 .fix{
-   
-   position: fixed;
+  
+  position: fixed;
    animation: fixx 1s ease-out forwards;
 }
 @keyframes fixx {
@@ -60,3 +60,70 @@ label{
     top: 0px;
   }
 }
+
+/* WELCOME */
+.homepage{
+  background: url('../../public/img_esterne/sfondo\ cielo\ nero.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+.welcome-tit{
+  text-shadow: darkgreen;
+  color: var(--colore-accento);
+  font-size: 80px;
+}
+.welcome-tit2{
+  text-shadow: darkgreen;
+  color: var(--colore-accento);
+  font-size: 50px;
+}
+
+/* FORM */
+
+.layout-form{
+  height: 80vh;
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  
+}
+
+
+.form-cst{
+  width: 400px;
+  
+  border: 2px white solid ;
+  border-radius: 20px;
+  box-shadow: 3px 3px 20px rgb(241, 240, 240);
+}
+label{
+  font-weight: bold;
+}
+.input-color{
+  background: linear-gradient(rgba(218, 207, 207, 0.26),rgba(218, 207, 207, 0.26));
+  box-shadow: var(--colore-accento);
+}
+
+
+
+
+
+.bg-card{
+  background-color: WHITE;
+  /* border: solid var(--colore-primario) 3px; */
+  font-weight: bolder;
+  border-radius: 20PX;
+  color: rgb(20, 2, 2);
+}
+
+.btn-mio{
+  background-color: rgb(11, 122, 11);
+  color: white;
+}
+
+
+
+
+
